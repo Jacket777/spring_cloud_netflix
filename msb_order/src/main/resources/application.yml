@@ -1,0 +1,76 @@
+spring:
+  application:
+    name: msb-order
+server:
+  port: 9002
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com.msb: debug  # spring boot日志级别
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: shutdown #暴露shutdown端点
+  endpoint:
+    shutdown:
+      enabled: true #再次确认暴露shutdown端点
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients: msb-stock
+
+#feign:
+#  client:
+#    config:
+#      msb-stock:
+#        loggerLevel: full
+
+#
+#msb-user:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#msb-stock:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#feign:
+#  client:
+#    config:
+#      default:
+#        loggerLevel: full
+#        contract: feign.Contract.Default # 指定Feign原生注解契约配置
+#      msb-stock:
+#        encoder: com.xxx.CustomDecoder
+feign:
+  tokenId: 11111111111111111111
+  httpclient:
+  #使用 apache httpClient 请求， 而不是httpUrlConnection
+  enabled: true
+  #最大的链接数
+  max-connections: 200
+  #feign 单个路径的最大连接数 默认是 50
+  max-connections-per-route: 50
+
+#  okhttp:
+#    enabled: true
+#  httpclient:
+#    max-connections-per-route: 50
+#    max-connections: 200
+#  httpclient:
+##    #使用 apache httpClient 请求， 而不是httpUrlConnection
+##    enabled: true
+#    #最大的链接数
+#    max-connections: 200
+#    #feign 单个路径的最大连接数 默认是 50
+#    max-connections-per-route: 50
+
+
