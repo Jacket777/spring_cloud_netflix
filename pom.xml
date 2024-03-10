@@ -6,7 +6,14 @@
 
     <groupId>com.msb</groupId>
     <artifactId>spring_cloud_netflix</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Eureka_server</module>
+        <module>msb_user</module>
+        <module>msb_order</module>
+        <module>msb_stock</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
