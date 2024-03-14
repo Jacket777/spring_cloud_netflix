@@ -13,6 +13,7 @@
         <module>msb_user</module>
         <module>msb_order</module>
         <module>msb_stock</module>
+        <module>msb_hystrix</module>
     </modules>
 
     <properties>
