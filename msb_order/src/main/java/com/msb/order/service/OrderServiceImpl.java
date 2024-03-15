@@ -11,12 +11,12 @@ public class OrderServiceImpl implements OrderServiceAPI {
 
     @Override
     public String getUserInfo(String userId)  {
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//模拟触发异常，配置超时200毫秒，此时休眠1秒，则触发异常
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         String result = userFeignClient.getUser(userId);
         return result;
 

@@ -14,6 +14,7 @@
         <module>msb_order</module>
         <module>msb_stock</module>
         <module>msb_hystrix</module>
+        <module>msb-zuul</module>
     </modules>
 
     <properties>
