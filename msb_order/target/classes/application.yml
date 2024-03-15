@@ -52,13 +52,15 @@ ribbon:
 #        encoder: com.xxx.CustomDecoder
 feign:
   tokenId: 11111111111111111111
-  httpclient:
+#  httpclient:
   #使用 apache httpClient 请求， 而不是httpUrlConnection
-  enabled: true
+#  enabled: true
   #最大的链接数
-  max-connections: 200
+#  max-connections: 200
   #feign 单个路径的最大连接数 默认是 50
-  max-connections-per-route: 50
+#  max-connections-per-route: 50
+  hystrix:
+    enabled: true
 
 #  okhttp:
 #    enabled: true
@@ -72,5 +74,7 @@ feign:
 #    max-connections: 200
 #    #feign 单个路径的最大连接数 默认是 50
 #    max-connections-per-route: 50
+
+
 
 

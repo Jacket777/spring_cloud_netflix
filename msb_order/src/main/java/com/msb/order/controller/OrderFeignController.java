@@ -57,4 +57,13 @@ public class OrderFeignController {
         return " 服务降级: 用户id = " + userId;
     }
 
+
+    @RequestMapping("createOrderByHystrixFeign")
+    public String createOrder_hystrix_feign(String userId){
+        String userInfo = userService.getUserInfo(userId);
+        return "创建订单成功，用户信息 userId: "+userInfo;
+
+    }
+
+
 }
