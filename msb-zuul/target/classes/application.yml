@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: msb-zuul
+server:
+  port: 7002
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com.msb: debug  # spring boot日志级别
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+zuul:
+  routes:  #路由规则
+    msb-order:  # 应用程序
+      path: /order-api/**   # 匹配规则
+  ignored-services: "*"   #禁止使用服务名称访问
+
+
+
+
+
+
+
