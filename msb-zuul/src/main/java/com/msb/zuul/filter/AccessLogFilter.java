@@ -9,7 +9,7 @@ public class AccessLogFilter extends AbstractPostZuulFilter{
     protected Object cRun() {
         HttpServletRequest request = context.getRequest();
         //从PreRequestFilter 中获取设置的请求时间
-        Long startTime = (Long)context.get("startTime");
+        Long startTime = (Long)request.getAttribute("startTime");
         String uri = request.getRequestURI();
         long duration = System.currentTimeMillis() - startTime;
         //从网关通过的请求都会打印这个日志

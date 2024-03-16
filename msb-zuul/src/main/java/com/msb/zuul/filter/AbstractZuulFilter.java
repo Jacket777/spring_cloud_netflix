@@ -1,5 +1,6 @@
 package com.msb.zuul.filter;
 
+
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
  * 通用的抽象过滤器
  */
 public abstract class AbstractZuulFilter extends ZuulFilter {
-
 
     // 用于在过滤器之间传递消息，数据保存在每个请求的ThreadLocal中
     // 扩展了Map，在这里面设置的值全局共享

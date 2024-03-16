@@ -24,6 +24,7 @@ zuul:
     msb-order:  # 应用程序
       path: /order-api/**   # 匹配规则
   ignored-services: "*"   #禁止使用服务名称访问
+  sensitive-headers: "company"
 
 
 
@@ -32,6 +33,19 @@ blackIp:
   contiueCounts: 10 #ip 连续请求次数
   timeIntervale: 10 #ip 判断的时间间隔
   limitTimes: 15 # 限制的时长 单位为秒
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000000
+
 
 
 

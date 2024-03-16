@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+
 @Slf4j
 @RestController
 public class OrderFeignController {
@@ -53,13 +56,18 @@ public class OrderFeignController {
     }
 
 
-    public String fallbackMethod(String userId) {
+    public String fallbackMethod(HttpServletRequest request,String userId) {
         return " 服务降级: 用户id = " + userId;
     }
 
 
     @RequestMapping("createOrderByHystrixFeign")
-    public String createOrder_hystrix_feign(String userId){
+    public String createOrder_hystrix_feign(HttpServletRequest request,String userId){
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while(headerNames.hasMoreElements()){
+            String headName = headerNames.nextElement();
+            log.error("headerName: {},  headerValue:{}",headName,request.getHeader(headName));
+        }
         String userInfo = userService.getUserInfo(userId);
         return "创建订单成功，用户信息 userId: "+userInfo;
 
