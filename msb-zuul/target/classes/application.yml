@@ -1,6 +1,10 @@
 spring:
   application:
     name: msb-zuul
+  redis:
+     database: 0
+     host: localhost
+     port: 6379
 server:
   port: 7002
 
@@ -20,6 +24,16 @@ zuul:
     msb-order:  # 应用程序
       path: /order-api/**   # 匹配规则
   ignored-services: "*"   #禁止使用服务名称访问
+
+
+
+# ip请求限制参数  10秒内 连续发送10次，则限制15秒不能再发
+blackIp:
+  contiueCounts: 10 #ip 连续请求次数
+  timeIntervale: 10 #ip 判断的时间间隔
+  limitTimes: 15 # 限制的时长 单位为秒
+
+
 
 
 

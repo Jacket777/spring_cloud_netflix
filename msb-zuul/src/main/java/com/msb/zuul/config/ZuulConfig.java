@@ -1,6 +1,7 @@
 package com.msb.zuul.config;
 
 
+import com.msb.zuul.filter.BlackIPFilter;
 import com.msb.zuul.filter.MyFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,5 +11,10 @@ public class ZuulConfig {
     @Bean
     public MyFilter initMyFilter(){
         return new MyFilter();
+    }
+
+    @Bean
+    public BlackIPFilter initBlackIPFilter(){
+        return new BlackIPFilter();
     }
 }

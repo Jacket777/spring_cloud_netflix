@@ -31,12 +31,12 @@ public class MyFilter extends ZuulFilter {
 
     /**
      * 是否开启过滤器
-     * 为实际业务 决定是否开启
+     * 为实际业务 决定是否开启 true为开启，false为关闭
      * @return
      */
     @Override
     public boolean shouldFilter() {
-        return false;
+        return true;
     }
 
 
